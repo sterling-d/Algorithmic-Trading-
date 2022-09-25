@@ -3,21 +3,21 @@
 
 1) What impact resulted from increasing or decreasing the training window?
 
-For this section, I adjusted the training window into 3 different periods: 
+For the initial training_begin and training_end parameters (2015-04-02, 2015-07-02), the accuracy score for both was 0.55. 
 
-a) 2015-04-02 - 2015-09-02,
-b) 2015-10-02 - 2016-02-02, and 
-c) 2017-01-02 - 2018-06-02.
+After adjusting the size of the training set to parameters that were both above and below the original timestamps, the following results occurred. 
 
-- In period a, both the SMA_Fast and SMA_Slow had a value of around 24 during 2015-04-02. Once it had reached 2015-09-02, the value had decreased to aproximately 21 within the SMA_Fast, and 22 for the SMA_Slow.
+First, I adjusted the training_end parameter to a value 2 months below the original timestamp, and kept training_begin to it's initial timestamp. (2015-04-02, 2015-05-02). The resulting accuracy score still maintained 0.55. 
 
-- In period b, both the SMA_Fast and SMA_Slow had a value of around 21 during 2015-10-02. However, once it had reached 2016-02-02, the value had decreased to aproximately 19 within the SMA_Fast, and 18 for the SMA_Slow.
+I then increased training_begin to 2015-11-02 by adding 7 periods, and training_end to 2015-05-02 by adding 12 periods. The resulting accuracy score ended up decreasing to 0.51. 
 
-- In period c, both the SMA_Fast and SMA_Slow had a value of around 21 during 2017-01-02. Once it had reached 2018-06-02, the value had increased to 26 for both SMA_Fast and SMA_Slow. 
+After increasing training_begin to 2015-10-02 by adding 6 periods, and training_end to 2015-11-02 by adding 7 periods, the final accuracy score was 0.56.
+
 
 2) What impact resulted from increasing or decreasing either or both of the SMA windows?
 
-After increasing both the short and long windows to (50) and (1000), the results had shown that the closing price had actually decreased, from $24.92 in 2015-04-02, to $21.56 in 2016-12-12. 
 
-I then decided to decrease the short and long windows to (1) and (50). The closing price for both windows, was still lower than the original long and short windows, with a price of $21.08 on 2016-12-27.
+After increasing both the short and long windows to (50) and (1000), the accuracy score had risen from 0.55 to 0.56. 
+
+Decreasing the short and long windows to (1) and (10) ultimately ended up lowering the accuracy score to 0.48. 
 
